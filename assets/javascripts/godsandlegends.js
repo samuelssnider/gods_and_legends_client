@@ -8,7 +8,8 @@ $(document).ready(function(){
   });
   
   var handleError = function(){
-    $('#latest-posts').append('<p class="post">Something went wrong. Try again later</p>');
+    console.log(API);
+    $('#latest-domains').append('<p class="domain">Something went wrong. Try again later</p>');
   }
   
   var getAllDomains = function() {
@@ -30,14 +31,30 @@ $(document).ready(function(){
       url: API + '/api/v1/domains/' + domainId,
       method: 'GET',
     }).done(function(data) {
-      console.log(data);
       $('#latest-domains').append('<p class="domain">' + data.name + '<p>');
     }).fail(function() {
       handleError();
-    });
+    })
+  }
+  
+  var createNewDomain = function() {
+    var newDomainName = $(".post-form input[name='domain-description']").val();
+    
+    return $.ajax({
+      url: API + '/api/v1/domains',
+      method: 'POST',
+      data: { name: newDomainName }
+    }).done(function(data) {
+      $('#latest-domains').append('<p class="domain"> New Domain has been created </p>');
+    }).fail(function() {
+      handleError();
+    })
   }
   
   
   $('button[name="button-fetch"]').on('click', getAllDomains);
   $(".show-form input[type='submit']").on('click', getSingleDomain);
+  $(".post-form input[type='submit']").on('click', createNewDomain);
+
+  
 });
