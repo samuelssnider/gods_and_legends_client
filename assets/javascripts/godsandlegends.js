@@ -70,7 +70,7 @@ $(document).ready(function(){
       url: API + '/api/v1/domains/' + deleteId,
       method: 'DELETE',
     }).done(function(data) {
-      $('#latest-domains').append('<p class="domain">Your Domain with id '+ delete +' has been delteted</p>');
+      $('#latest-domains').append('<p class="domain">Your Domain with id '+ deleteID +' has been delteted</p>');
     }).fail(function() {
       handleError();
     })
