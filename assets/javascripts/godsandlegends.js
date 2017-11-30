@@ -6,11 +6,10 @@ $(document).ready(function(){
   $('form').on('submit', function(event){
     event.preventDefault();
   });
-  
   var handleError = function(){
     $('#latest-domains').append('<p class="domain">Something went wrong. Try again later</p>');
   }
-  
+
   var getAllDomains = function() {
     return $.ajax({
       url: API + '/api/v1/domains',
@@ -76,12 +75,18 @@ $(document).ready(function(){
     })
   }
   
-  
-  
   $('button[name="button-fetch"]').on('click', getAllDomains);
   $(".show-form input[type='submit']").on('click', getSingleDomain);
   $(".post-form input[type='submit']").on('click', createNewDomain);
   $(".update-form input[type='submit']").on('click', updateDomain);
   $(".delete-form input[type='submit']").on('click', deleteDomain);
-
-});
+  
+  
+})
+// 
+// 
+// 
+// 
+// 
+// 
+// })
