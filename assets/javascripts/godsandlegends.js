@@ -37,7 +37,6 @@ $(document).ready(function(){
   
   var createNewDomain = function() {
     var newDomainName = $(".post-form input[name='domain-description']").val();
-    
     return $.ajax({
       url: API + '/api/v1/domains',
       method: 'POST',
