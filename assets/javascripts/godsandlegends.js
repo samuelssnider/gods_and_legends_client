@@ -16,7 +16,7 @@ $(document).ready(function(){
       method: 'GET',
     }).done(function(data) {
       for(i = 0; data.length; i++) {
-        $('#latest-domains').append('<p class="domain">' + data[i].name + '</p>');
+        $('#latest-domains').append('<span class="domain">' + data[i].name +' ' + '</span>');
       }
     }).fail(function() {
       handleError();
